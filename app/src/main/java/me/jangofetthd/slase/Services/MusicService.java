@@ -81,38 +81,6 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
         resume();
     }
 
-    public void startThread(){
-
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            public void run() {
-
-                URL url;
-                //Message msg = handler.obtainMessage();
-                try {
-                    url = new URL(station);
-                    IcyStreamMeta icy = new IcyStreamMeta(url);
-
-                    Log.d("SONG",icy.getTitle());
-                    //Toast.makeText(MusicService.this, icy.getTitle(), Toast.LENGTH_SHORT).show();
-                    //msg.obj = icy.getTitle();
-                    MainActivity.nametrack.setText(icy.getTitle());
-
-                    Log.d("ARTITSi",icy.getArtist());
-                    MainActivity.authorTrack.setText(icy.getArtist());
-                    //handler.sendMessage(msg);
-                } catch (MalformedURLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        }, 0, 10000);
-
-    }
 
     //-----------------------------------
 
